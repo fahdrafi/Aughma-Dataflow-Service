@@ -8,7 +8,7 @@ import scala.xml.Elem
 import scala.xml.XML
 import scala.io.Codec
 
-class NodeCoreServlet extends HttpServlet {
+class FetchURLServlet extends AughmaServlet {
 	override def doGet(req: HttpServletRequest, resp: HttpServletResponse) = {
 	  val nodeDescription = 
 		<NodeCore>
@@ -23,17 +23,6 @@ class NodeCoreServlet extends HttpServlet {
 	  
 		resp.setContentType("application/xml")
 		resp.getWriter().print(nodeDescription)
-	}
-	
-	def getRequestBody(req: HttpServletRequest) = {
-	  val jb = new StringBuffer()
-	  val reader = req.getReader()
-	  var line = reader.readLine()
-	  while (line != null) {
-	    jb.append(line)
-	    line = reader.readLine()
-	  }
-	  jb.toString()
 	}
 	
 	override def doPost(req: HttpServletRequest, resp: HttpServletResponse) = {

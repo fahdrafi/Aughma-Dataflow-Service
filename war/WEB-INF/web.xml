@@ -5,12 +5,20 @@ xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet>
-		<servlet-name>NodeCore</servlet-name>
-		<servlet-class>com.aughma.node.sample.NodeCoreServlet</servlet-class>
+		<servlet-name>FetchURL</servlet-name>
+		<servlet-class>com.aughma.node.sample.FetchURLServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>NodeCore</servlet-name>
-		<url-pattern>/nodecore</url-pattern>
+		<servlet-name>FetchURL</servlet-name>
+		<url-pattern>/fetchurl</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>XPath</servlet-name>
+		<servlet-class>com.aughma.node.sample.XPathServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>XPath</servlet-name>
+		<url-pattern>/xpath</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
