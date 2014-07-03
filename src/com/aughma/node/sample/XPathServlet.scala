@@ -31,13 +31,13 @@ class XPathServlet extends AughmaServlet {
     def XPath(xmlNode: Node, xPath: String) : XPathResult = {
       xPath match {
         case "" => NS(NodeSeq.Empty)
+        case "/text()" => Str(xmlNode.text)
         case p if p.startsWith("//") && !p.substring(2).contains('/') => NS(xmlNode \\ p.substring(2))
         case p if p.startsWith("/") && !p.substring(1).contains('/') => NS(xmlNode \ p.substring(1))
-        case p if p.startsWith("//") => XPath(xmlNode \\ p.substring(2, p.indexOf('/', 2)), p.substring(p.indexOf('/', 2)+1))
-        case p if p.startsWith("/") => XPath(xmlNode \ p.substring(1, p.indexOf('/', 1)), p.substring(p.indexOf('/', 1)+1))
+        case p if p.startsWith("//") => XPath(xmlNode \\ p.substring(2, p.indexOf('/', 2)), p.substring(p.indexOf('/', 2)))
+        case p if p.startsWith("/") => XPath(xmlNode \ p.substring(1, p.indexOf('/', 1)), p.substring(p.indexOf('/', 1)))
         case p if xmlNode.isInstanceOf[Node] && p == xmlNode.asInstanceOf[Node].label => NS(xmlNode)
-        case "text()" => Str(xmlNode.text)
-        case p => throw new Exception("xPath string start with '/' or '//'")
+        case p => throw new Exception("xPath \""+ p + "\" string start with '/' or '//'")
       }
 	}
 	
