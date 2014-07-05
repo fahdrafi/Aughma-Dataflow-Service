@@ -12,8 +12,7 @@ case class StrSeq(strSeq: Seq[String]) extends XPathResult
 case class XPS(xps: Seq[XPathResult]) extends XPathResult
 
 class XPathServlet extends AughmaServlet {
-	override def doGet(req: HttpServletRequest, resp: HttpServletResponse) = {
-	  val nodeDescription = 
+	val description =
 		<NodeCore>
 			  <Stateful>false</Stateful>
 			  <Description>
@@ -23,12 +22,8 @@ class XPathServlet extends AughmaServlet {
 			  <Parameter type="string" name="xpath" />
 			  <Output type="string" name="data" />
 		</NodeCore>
-	  
-		resp.setContentType("application/xml")
-		resp.getWriter().print(nodeDescription)
-	}
 
-    def XPath(xmlNode: Node, xPath: String) : XPathResult = {
+    private def XPath(xmlNode: Node, xPath: String) : XPathResult = {
       xPath match {
         case "" => NS(NodeSeq.Empty)
         case "/text()" => Str(xmlNode.text)
@@ -41,14 +36,14 @@ class XPathServlet extends AughmaServlet {
       }
 	}
 	
-	def XPath(xmlSeq: NodeSeq, xPath: String) : XPS = {
+	private def XPath(xmlSeq: NodeSeq, xPath: String) : XPathResult = {
 	  xmlSeq match {
 	    case x: Node => throw new Exception("This call should have gone to the other implementation of XPath")
 	    case x => XPS(xmlSeq.theSeq.map(n => XPath(n, xPath)))
 	  }
 	}
 	
-	def XPathResultToData(xpr: XPathResult): NodeSeq = {
+	private def XPathResultToData(xpr: XPathResult): NodeSeq = {
 	  xpr match {
 	    case NS(ns) => NodeSeq.fromSeq(ns.map(n => <data>{n.toString}</data>))
 	    case Str(s) => <data>{s}</data>
@@ -57,16 +52,12 @@ class XPathServlet extends AughmaServlet {
 	  }
 	}
 	
-	override def doPost(req: HttpServletRequest, resp: HttpServletResponse) = {
-	  val reqBody = getRequestBody(req)
-	  val reqXML = XML.loadString(reqBody)
-	  
-	  val xml = XML.loadString((reqXML \\ "xml").text)
-	  val xpath = (reqXML \\ "xpath").text
-	  
-	  val result = <Output>{XPathResultToData(XPath(xml, xpath))}</Output>
-	  
-	  resp.setContentType("application/xml")
-	  resp.getWriter().print(result)
-	}	
+	def ProcessInput(input: NodeSeq): NodeSeq = {
+	  val xml = XML.loadString((input\\"xml").theSeq.head.text)
+	  val xpath = (input\\"xpath").theSeq.head.text
+	  <Output>{
+	    XPathResultToData(XPath(xml, xpath))
+	  }</Output>
+	}
+	
 }
