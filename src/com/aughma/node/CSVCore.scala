@@ -17,7 +17,6 @@ class CSVCore extends NodeCore {
 	  
 	def ProcessInput(input: NodeSeq): NodeSeq = {
 	  val csv = (input\\"csv").theSeq.head.text
-	  val xpath = (input\\"xpath").theSeq.head.text
 	  
 	  val lines = csv
 	    .split(List('\r', '\n').toArray)
