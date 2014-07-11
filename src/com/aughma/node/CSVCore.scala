@@ -33,7 +33,7 @@ class CSVCore extends NodeCore {
 	  	.toSeq
 	 
 	  <Output/>.copy(child = data.map(record => {
-	    <dynamic/>.copy(child = record.map(item => <a>{item._2}</a>.copy(label = item._1)))
+	    <dynamic/>.copy(child = record.map(item => <a>{item._1}</a>.copy(label = item._2)))
 	  }))
 	  	
 	}

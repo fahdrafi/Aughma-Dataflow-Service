@@ -38,3 +38,9 @@ Icon
 *.class
 
 *.class
+
+*.class
+
+war/WEB-INF/classes/com/aughma/node/CSVCore$$anonfun$4$$anonfun$5.class
+
+war/WEB-INF/classes/com/aughma/node/NodeAdaptor.class
