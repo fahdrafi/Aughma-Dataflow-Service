@@ -14,10 +14,15 @@ import com.google.appengine.api.taskqueue.TaskOptions.Builder._
  */
 trait NodeAdaptor extends AughmaServlet {
 	val description: NodeSeq
-	def PostMessage(input: NodeSeq): NodeSeq = {
+	def ReceiveInput(input: NodeSeq): NodeSeq = {
 		val queue = QueueFactory.getDefaultQueue();
         queue.add(withUrl("/pathToNodeCore").param("key", "value"));
-        <MessageSent/>
+        <InputReceived/>
+	}
+	
+	def ForwardOutput(output: NodeSeq): NodeSeq = {
+	  
+	  <OutputForwarded/>
 	}
 	
 	final override def doGet(req: HttpServletRequest, resp: HttpServletResponse) = {
@@ -31,6 +36,6 @@ trait NodeAdaptor extends AughmaServlet {
 		val requestBody = XML.loadString(getRequestBody(req))
 		
 		resp.setContentType("application/xml")
-		resp.getWriter().print(PostMessage(requestBody))
+		resp.getWriter().print(ReceiveMessage(requestBody))
 	}
 }
