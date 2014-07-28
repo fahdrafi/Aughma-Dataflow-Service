@@ -5,7 +5,7 @@ import scala.xml.XML
 import scala.xml.NodeSeq
 import com.aughma.xml.xpath.XPath
 
-class XPathCore extends NodeCore {
+class XPathBlock extends AppEngineBlock {
 	val description =
 		<NodeCore>
 			  <Stateful>false</Stateful>

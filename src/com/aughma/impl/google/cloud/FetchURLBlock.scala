@@ -5,7 +5,7 @@ import scala.xml._
 import scala.io.Codec
 
 
-class FetchURLCore extends NodeCore {
+class FetchURLBlock extends AppEngineBlock {
   val description =
 		<NodeCore>
 		  <Stateful>false</Stateful>

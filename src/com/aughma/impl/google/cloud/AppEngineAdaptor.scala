@@ -4,6 +4,7 @@ import javax.servlet.http._
 import scala.xml._
 import com.google.appengine.api.taskqueue._
 import com.google.appengine.api.taskqueue.TaskOptions.Builder._
+import com.aughma.dataflow.Adaptor
 
 /**
  * Node Adaptor is responsible for:
@@ -12,7 +13,7 @@ import com.google.appengine.api.taskqueue.TaskOptions.Builder._
  * 3. Managing execution according to the defined parameters (parallelism etc)
  * 4. Connecting the output to another Node adaptor (if need be) 
  */
-trait NodeAdaptor extends AughmaServlet {
+trait AppEngineAdaptor extends ExtendedServlet with Adaptor {
 	val description: NodeSeq
 	def ReceiveInput(input: NodeSeq): NodeSeq = {
 		val queue = QueueFactory.getDefaultQueue();

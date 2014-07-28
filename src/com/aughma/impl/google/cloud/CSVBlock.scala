@@ -3,7 +3,7 @@ package com.aughma.impl.google.cloud
 import javax.servlet.http._
 import scala.xml._
 
-class CSVCore extends NodeCore {
+class CSVBlock extends AppEngineBlock {
 	val description =
 		<NodeCore>
 			  <Stateful>false</Stateful>
