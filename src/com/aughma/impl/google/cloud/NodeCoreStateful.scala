@@ -1,4 +1,4 @@
-package com.aughma.node
+package com.aughma.impl.google.cloud
 
 import scala.xml.NodeSeq
 

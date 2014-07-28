@@ -1,4 +1,4 @@
-package com.aughma.node
+package com.aughma.impl.google.cloud
 
 import javax.servlet.http._
 import scala.xml._

@@ -1,4 +1,4 @@
-package com.aughma.node
+package com.aughma.impl.google.cloud
 
 import javax.servlet.http._
 import scala.xml._
@@ -36,6 +36,6 @@ trait NodeAdaptor extends AughmaServlet {
 		val requestBody = XML.loadString(getRequestBody(req))
 		
 		resp.setContentType("application/xml")
-		resp.getWriter().print(ReceiveMessage(requestBody))
+		resp.getWriter().print(ReceiveInput(requestBody))
 	}
 }
