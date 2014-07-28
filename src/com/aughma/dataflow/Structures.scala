@@ -3,7 +3,7 @@ package com.aughma.dataflow
 import java.util.UUID
 import scala.xml.Node
 
-trait Datum extends Serializable {
+trait Datum {
   val _id: UUID
   def toXml: Node
   val fromXml: Node => Datum
@@ -14,14 +14,14 @@ trait DataSource {
   val Target: Pipeline
 }
 
-trait ProcessingNode {
+trait Block {
   def Process(datum: Datum) : Seq[Datum]
 }
 
 trait Adaptor {
-  val ProcessingNode: ProcessingNode
+  val ProcessingNode: Block
   val Outputs: Seq[Adaptor]
   def Post(datum: Datum)
 }
 
-trait Pipeline extends ProcessingNode
+trait Pipeline extends Block
