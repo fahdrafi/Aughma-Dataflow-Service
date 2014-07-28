@@ -2,8 +2,9 @@ package com.aughma.impl.google.cloud
 
 import javax.servlet.http._
 import scala.xml._
+import com.aughma.dataflow._
 
-trait NodeCore extends AughmaServlet {
+trait AEProcessingNode extends ExtendedServlet with ProcessingNode {
     val description: NodeSeq
     def ProcessInput(input: NodeSeq): NodeSeq
     

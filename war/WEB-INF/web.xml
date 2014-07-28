@@ -6,7 +6,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet>
 		<servlet-name>FetchURL</servlet-name>
-		<servlet-class>com.aughma.node.FetchURLCore</servlet-class>
+		<servlet-class>com.aughma.impl.google.cloud.FetchURLCore</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FetchURL</servlet-name>
@@ -14,7 +14,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>XPath</servlet-name>
-		<servlet-class>com.aughma.node.XPathCore</servlet-class>
+		<servlet-class>com.aughma.impl.google.cloud.XPathCore</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>XPath</servlet-name>
@@ -25,7 +25,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>CSV</servlet-name>
-		<servlet-class>com.aughma.node.CSVCore</servlet-class>
+		<servlet-class>com.aughma.impl.google.cloud.CSVCore</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CSV</servlet-name>
