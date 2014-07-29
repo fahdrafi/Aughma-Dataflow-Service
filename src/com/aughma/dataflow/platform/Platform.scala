@@ -48,3 +48,7 @@ trait Pipeline extends DataReceiver with DataSource {
   val Output: DataSource
   override val Targets = Output.Targets // check if this even works
 }
+
+trait BatchSource extends DataSource {
+  def Go
+}
