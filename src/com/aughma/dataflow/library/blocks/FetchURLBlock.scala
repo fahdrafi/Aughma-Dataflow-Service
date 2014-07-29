@@ -20,6 +20,7 @@ package com.aughma.dataflow.library.blocks
 import javax.servlet.http._
 import scala.xml._
 import scala.io.Codec
+import com.aughma.dataflow.impl.google.AppEngineBlock
 
 
 class FetchURLBlock extends AppEngineBlock {

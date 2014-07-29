@@ -21,6 +21,7 @@ import javax.servlet.http._
 import scala.xml.XML
 import scala.xml.NodeSeq
 import com.aughma.xml.xpath.XPath
+import com.aughma.dataflow.impl.google.AppEngineBlock
 
 class XPathBlock extends AppEngineBlock {
 	val description =

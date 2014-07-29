@@ -15,13 +15,14 @@
  *
  */
 
-package com.aughma.dataflow.library.blocks
+package com.aughma.dataflow.impl.google
  
 import javax.servlet.http._
 import scala.xml._
 import com.google.appengine.api.taskqueue._
 import com.google.appengine.api.taskqueue.TaskOptions.Builder._
-import com.aughma.dataflow.Adaptor
+import com.aughma.dataflow.library.blocks.ExtendedServlet
+import com.aughma.dataflow.impl.google.ExtendedServlet
 
 /**
  * Node Adaptor is responsible for:

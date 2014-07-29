@@ -19,6 +19,7 @@ package com.aughma.dataflow.library.blocks
 
 import javax.servlet.http._
 import scala.xml._
+import com.aughma.dataflow.impl.google.AppEngineBlock
 
 class CSVBlock extends AppEngineBlock {
 	val description =

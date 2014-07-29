@@ -15,7 +15,7 @@
  *
  */
 
-package com.aughma.dataflow.library.blocks
+package com.aughma.dataflow.impl.google
 
 import javax.servlet.http._
 

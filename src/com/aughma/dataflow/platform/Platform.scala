@@ -26,19 +26,25 @@ trait Datum {
   val fromXml: Node => Datum
 }
 
-trait DataSource {
-  def Start
-  val Target: Pipeline
-}
-
 trait Block {
   def Process(datum: Datum) : Seq[Datum]
 }
 
-trait Adaptor {
-  val ProcessingNode: Block
-  val Outputs: Seq[Adaptor]
-  def Post(datum: Datum)
+trait DataSource {
+//  def Start
+  val Targets: Seq[DataReceiver]
 }
 
-trait Pipeline extends Block
+trait DataReceiver {
+  def Post(datum: Datum) 
+}
+
+trait Adaptor extends DataReceiver with DataSource {
+  val ProcessingNode: Block
+}
+
+trait Pipeline extends DataReceiver with DataSource {
+  val Input: DataReceiver
+  val Output: DataSource
+  override val Targets = Output.Targets // check if this even works
+}

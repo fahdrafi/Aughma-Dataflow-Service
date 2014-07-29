@@ -15,11 +15,11 @@
  *
  */
 
-package com.aughma.dataflow.library.blocks
+package com.aughma.dataflow.impl.google
 
 import javax.servlet.http._
 import scala.xml._
-import com.aughma.dataflow._
+import com.aughma.dataflow.platform._
 
 trait AppEngineBlock extends ExtendedServlet with Block {
     val description: NodeSeq
