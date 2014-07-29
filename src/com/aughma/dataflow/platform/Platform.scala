@@ -52,3 +52,7 @@ trait Pipeline extends DataReceiver with DataSource {
 trait BatchSource extends DataSource {
   def Go
 }
+
+trait DataCollector extends DataReceiver {
+  def Data: Seq[Datum]
+}
