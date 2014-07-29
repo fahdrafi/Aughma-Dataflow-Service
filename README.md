@@ -9,4 +9,4 @@ We shall host it as a service at www.aughma.com.
 
 ## Copyright and license
 
-Code and documentation copyright 2014 Aughma Limited. Code released under [the Apache v2 License](LICENSE.md).
+Code and documentation copyright 2014 Aughma Limited. Code released under [the Apache License v2](LICENSE.md).
