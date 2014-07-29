@@ -15,7 +15,7 @@
  *
  */
    
-package com.aughma.dataflow
+package com.aughma.dataflow.platform
 
 import java.util.UUID
 import scala.xml.Node

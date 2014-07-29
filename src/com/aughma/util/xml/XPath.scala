@@ -15,7 +15,7 @@
  *
  */
 
-package com.aughma.xml.xpath
+package com.aughma.util.xml
 
 import scala.xml._
 
