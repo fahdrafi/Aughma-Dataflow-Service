@@ -27,11 +27,11 @@ trait Datum {
 }
 
 trait Block {
+  def Initialise(params: Map[String, String])
   def Process(datum: Datum) : Seq[Datum]
 }
 
 trait DataSource {
-//  def Start
   val Targets: Seq[DataReceiver]
 }
 
