@@ -1,6 +1,6 @@
-#Aughma Dataflow Service
+#Aughma Dataflow
 
-Aughma Dataflow Service aims to provide an ability to build data processing pipelines with reusable processing nodes. The processing pipelines are envisaged to be used with real time as well as batch data sources. The execution can be on the cloud or in-house hardware/software stack.
+With Aughma Dataflow Service, you can build your own data processing pipelines to analyse batch or streaming data utilizing a library of reusable processing nodes. We are currently developing it to work as a service on the google cloud platform, however we are designing it to be implementable for any other cloud provider or your own in-house frameworks using the java technology stack.
 
 We are currently building the wiki, which will contain information about the concept, how to use it, and how to build custom processing nodes if need be.
 
