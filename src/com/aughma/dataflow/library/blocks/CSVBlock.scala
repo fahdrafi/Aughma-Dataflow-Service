@@ -20,9 +20,10 @@ package com.aughma.dataflow.library.blocks
 import javax.servlet.http._
 import scala.xml._
 import com.aughma.dataflow.impl.google.AppEngineBlock
+import com.aughma.dataflow.platform.Block
 
 class CSVBlock extends AppEngineBlock {
-	val description =
+	val description: Node = 
 		<NodeCore>
 			  <Stateful>false</Stateful>
 			  <Description>
@@ -31,7 +32,6 @@ class CSVBlock extends AppEngineBlock {
 			  <Input type="string" name="csv" />
 			  <Output type="dynamic" name="data"/>
 		</NodeCore>
-	  
 	  
 	def ProcessInput(input: NodeSeq): NodeSeq = {
 	  val csv = (input\\"csv").theSeq.head.text

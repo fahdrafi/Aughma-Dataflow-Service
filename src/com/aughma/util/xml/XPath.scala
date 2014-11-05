@@ -23,7 +23,7 @@ sealed trait XPathResult {
   def toNodeSeq : NodeSeq
 }
 case class NodeSeqResult(nodeSeq: NodeSeq) extends XPathResult {
-  def toNodeSeq = NodeSeq.fromSeq(nodeSeq.map(n => <data>{n.toString}</data>))
+  def toNodeSeq = nodeSeq.map(n => <data>{n.toString}</data>)   
 }
 case class StringResult(string: String) extends XPathResult {
   def toNodeSeq = <data>{string}</data>

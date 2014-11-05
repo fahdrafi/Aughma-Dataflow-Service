@@ -21,8 +21,7 @@ import javax.servlet.http._
 import scala.xml._
 import com.google.appengine.api.taskqueue._
 import com.google.appengine.api.taskqueue.TaskOptions.Builder._
-import com.aughma.dataflow.library.blocks.ExtendedServlet
-import com.aughma.dataflow.impl.google.ExtendedServlet
+import com.aughma.dataflow.platform.Adaptor
 
 /**
  * Node Adaptor is responsible for:
@@ -34,8 +33,8 @@ import com.aughma.dataflow.impl.google.ExtendedServlet
 trait AppEngineAdaptor extends ExtendedServlet with Adaptor {
 	val description: NodeSeq
 	def ReceiveInput(input: NodeSeq): NodeSeq = {
-		val queue = QueueFactory.getDefaultQueue();
-        queue.add(withUrl("/pathToNodeCore").param("key", "value"));
+		val queue = QueueFactory.getDefaultQueue()
+        queue.add(withUrl("/pathToNodeCore").param("key", "value"))
         <InputReceived/>
 	}
 	
