@@ -23,7 +23,7 @@ import scala.io.Codec
 import com.aughma.dataflow.impl.google.AppEngineBlock
 
 
-class FetchURLBlock extends AppEngineBlock {
+class FetchURLBlock extends Block with AppEngineBlock {
   val description =
 		<NodeCore>
 		  <Stateful>false</Stateful>

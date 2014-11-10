@@ -42,7 +42,6 @@ trait DataReceiver {
 trait Adaptor extends DataReceiver with DataSource {
   val ProcessingNode: Block
 }
-
 trait Pipeline extends DataReceiver with DataSource {
   val Input: DataReceiver
   val Output: DataSource

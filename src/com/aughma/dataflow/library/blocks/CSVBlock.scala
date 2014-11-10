@@ -22,24 +22,21 @@ import scala.xml._
 import com.aughma.dataflow.impl.google.AppEngineBlock
 import com.aughma.dataflow.platform.Block
 
-class CSVBlock extends AppEngineBlock {
-	val description: Node = 
-		<NodeCore>
-			  <Stateful>false</Stateful>
-			  <Description>
-			  	This node takes a csv with headers and provides all rows as the output data.
-			  </Description>
-			  <Input type="string" name="csv" />
-			  <Output type="dynamic" name="data"/>
-		</NodeCore>
+class CSVBlock extends Block with AppEngineBlock {
+  
+	def Initialize(params: Map[String, String]) = {}
+	
+	def Process(datum: Datum): Seq[Datum] = {
 	  
+	}
+  
 	def ProcessInput(input: NodeSeq): NodeSeq = {
 	  val csv = (input\\"csv").theSeq.head.text
-	  
+  
 	  val lines = csv
 	    .split(List('\r', '\n').toArray)
 	    .filter(_.length > 0)
-
+	
 	  val headers = lines
 	  	.head
 	  	.split(',')
@@ -53,7 +50,6 @@ class CSVBlock extends AppEngineBlock {
 	  <Output/>.copy(child = data.map(record => {
 	    <dynamic/>.copy(child = record.map(item => <a>{item._1}</a>.copy(label = item._2)))
 	  }))
-	  	
 	}
 	
 }

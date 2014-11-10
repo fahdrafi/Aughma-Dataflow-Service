@@ -21,7 +21,7 @@ import javax.servlet.http._
 import scala.xml._
 import com.aughma.dataflow.platform._
 
-trait AppEngineBlock extends ExtendedServlet with Block {
+trait AppEngineBlock extends ExtendedServlet {
     val description: NodeSeq
     def ProcessInput(input: NodeSeq): NodeSeq
     
