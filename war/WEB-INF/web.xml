@@ -5,28 +5,12 @@ xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet>
-		<servlet-name>FetchURL</servlet-name>
-		<servlet-class>com.aughma.impl.google.cloud.FetchURLCore</servlet-class>
+		<servlet-name>UpdateData</servlet-name>
+		<servlet-class>com.aughma.pipeline.UpdateData</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>FetchURL</servlet-name>
-		<url-pattern>/fetchurl</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>XPath</servlet-name>
-		<servlet-class>com.aughma.impl.google.cloud.XPathCore</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>XPath</servlet-name>
-		<url-pattern>/xpath</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>CSV</servlet-name>
-		<servlet-class>com.aughma.impl.google.cloud.CSVCore</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>CSV</servlet-name>
-		<url-pattern>/csv</url-pattern>
+		<servlet-name>UpdateData</servlet-name>
+		<url-pattern>/updateData</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
