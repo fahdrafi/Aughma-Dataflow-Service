@@ -1,5 +1,6 @@
 package com.aughma.dataflow
 
 trait Block {
-	def tick
+	val errorPort: OutputPort
+	def trigger
 }

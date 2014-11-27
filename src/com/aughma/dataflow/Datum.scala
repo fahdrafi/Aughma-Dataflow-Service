@@ -1,5 +1,4 @@
 package com.aughma.dataflow
 
-trait Datum {
-
-}
+//trait Datum {
+//}
