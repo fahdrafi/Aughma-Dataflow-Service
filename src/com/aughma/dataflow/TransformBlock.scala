@@ -1,9 +1,14 @@
 package com.aughma.dataflow
 
-trait TransformBlock extends ConsumerBlock with GeneratorBlock {
+trait TransformBlock extends Block with HasInputPorts with HasOutputPorts {
   override def trigger = {
-	val out = Transform(inputs.mapValues(_.retrieve))
-	outputs.foreach(output => output._2.links.foreach(_.target.post(out(output._1))))
+  	val results = Transform(inputPorts.mapValues(_.Retrieve))
+    results.foreach(result => 
+      outputPorts(result._1)
+        .linkedPorts.foreach(linkedPort=>
+          linkedPort.Post(result._2)
+        )
+    )
   }
   def Transform(parameters: Map[String, String]): Map[String, String]
 }

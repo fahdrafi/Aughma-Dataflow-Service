@@ -1,9 +1,8 @@
 package com.aughma.dataflow
 
-trait ConsumerBlock extends Block {
-	val inputs: Map[String, InputPort]
+trait ConsumerBlock extends Block with HasInputPorts {
 	def Consume(input: Map[String, String])
 	override def trigger = {
-	  Consume(inputs.mapValues(_.retrieve))
+	  Consume(inputPorts.mapValues(_.Retrieve))
 	}
 }
