@@ -4,7 +4,7 @@ import com.aughma.dataflow.TransformBlock
 import scala.io.Source
 import java.util.logging.Level
 
-object FetchURLBlock extends TransformBlock {
+class FetchURLBlock extends TransformBlock {
   val INPUTURL = "url"
   val OUTPUTRESPONSE = "Response"
   val errorPort = new LogOutputPort("ERROR", Level.SEVERE)
