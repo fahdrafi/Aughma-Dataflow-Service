@@ -2,8 +2,9 @@
 (function() {
   (function() {
     var app;
-    app = angular.module("aughma", []);
+    app = angular.module("aughma", ["ngDraggable"]);
+    alert("App Started");
     return 0;
-  });
+  })();
 
 }).call(this);
