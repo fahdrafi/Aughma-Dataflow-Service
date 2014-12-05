@@ -1,4 +1,3 @@
 do ->
-    app = angular.module("aughma", ["ngDraggable"])
-    alert "App Started"
+    app = angular.module("aughma", [])
     0

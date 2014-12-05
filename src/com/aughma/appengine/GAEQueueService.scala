@@ -9,6 +9,7 @@ object GAEQueueService {
   def createQueue = {
     val entity = new Entity("Queue")
     datastore.put(entity).toString
+
   }
 
   def enqueue(queueId: String, value: String) = {
