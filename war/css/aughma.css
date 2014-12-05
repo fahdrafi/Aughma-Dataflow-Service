@@ -1,0 +1,33 @@
+.block {
+    border-style: solid;
+    border-color: blue;    
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+.block-title {
+    margin: 5px;
+    padding: 5px;
+    border-style: solid;
+    border-color: red;
+    text-align: center;
+}
+
+.block-input-ports {
+    margin: 5px;
+    padding: 5px;
+    border-style: solid;
+    border-color: green;
+    text-align: left;
+    height: auto;
+}
+
+.block-output-ports {
+    margin: 5px;
+    padding: 5px;
+    border-style: solid;
+    border-color: green;
+    text-align: left;
+    height: auto;
+}
